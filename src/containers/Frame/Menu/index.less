@@ -1,0 +1,135 @@
+:global(.unexpand) {
+    .menu {
+        width: 50px;
+        a {
+            padding-left: 15px;
+            font-size: 0;
+        }
+    }
+    .setting-expand {
+        :global(.fa) {
+            transform: rotate(180deg);
+        }
+    }
+}
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding-top: 75px;
+    width: 160px;
+    height: 100%;
+    border-right: 1px solid transparent;
+    background-color: #183A61;
+
+    a {
+        display: block;
+        // text-align: center;
+        padding-left: 36px;
+        height: 30px;
+        color: #74AFD9;
+        font-size: 14px;
+        line-height: 30px;
+        transition: background .2s;
+        i,
+        span {
+            vertical-align: middle;
+            font-size: 18px!important;
+        }
+        &.current {
+            position: relative;
+            background-color: #153454;
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 4px;
+                height: inherit;
+                background-color: #03A9F3;
+                content: "";
+            }
+        }
+        &:hover {
+            background-color: #153454;
+            color: #6CA4CD;
+        }
+        :global {
+            .iconfont {
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.setting-other-wrap {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    a {
+        display: block;
+        // text-align: center;
+        padding-left: 36px;
+        height: 30px;
+        color: #74AFD9;
+        font-size: 14px;
+        line-height: 30px;
+        transition: background .2s;
+    }
+    .setting-expand {
+        margin-bottom: 25px;
+        height: 1px;
+        background-color: rgba(22,69,118,.9);
+        text-align: center;
+        :global {
+            .fa {
+                position: relative;
+                top: -10px;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #224872;
+                color: #4D77BC;
+                text-align: center;
+                font-size: 10px;
+                line-height: 20px;
+                cursor: pointer;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .setting-expand {
+        display: none;
+    }
+    .menu {
+        width: 50px;
+        a {
+            padding-left: 15px;
+            font-size: 0;
+        }
+        .menu-list {
+            li:first-child {
+                display: none;
+            }
+        }
+    }
+    .setting-expand {
+        :global(.fa) {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .setting-other-wrap {
+        position: static;
+        bottom: 0;
+        padding-top: 20px;
+    }
+}
